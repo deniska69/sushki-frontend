@@ -1,7 +1,16 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import { useEffect } from "react";
+import { socketConnect } from "./core/socket";
 
-function App() {
+const App = () => {
+  useEffect(() => {
+    console.log('App useEffect render')
+    socketConnect();
+  }, []);
+
+  console.log('App render')
+
   return (
     <div className="App">
       <header className="App-header">
