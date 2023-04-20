@@ -1,15 +1,17 @@
 import { io } from "socket.io-client";
 import { API_URL } from "./config";
 
-const socket = io(API_URL);
+const socket = io(API_URL, {
+    autoConnect: false
+});
 
 socket.on("connect", () => {
-    //TODO issue: double connect
-    console.log('\nsocket connect:', socket?.id);
+    console.log('\nsocket connect success:', socket?.id);
 });
 
 const socketConnect = () => {
-    socket.connect(API_URL, { forceNew: true });
+    console.log('void connect to socket')
+    socket.connect();
 }
 
 export {
